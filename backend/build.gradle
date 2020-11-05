@@ -1,0 +1,4 @@
+allprojects {
+    group = 'ch.hsr.sai14sa12'
+    version = '0.0.1-SNAPSHOT'
+}
