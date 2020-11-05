@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: config-microservice
@@ -6,11 +6,13 @@ metadata:
     app: config-microservice
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: config-microservice
   template:
     metadata:
       labels:
         app: config-microservice
-        tier: backend
     spec:
       containers:
       - name: config

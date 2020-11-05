@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway-microservice
@@ -6,11 +6,13 @@ metadata:
     app: gateway-microservice
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: gateway-microservice
   template:
     metadata:
       labels:
         app: gateway-microservice
-        tier: backend
     spec:
       containers:
       - name: gateway

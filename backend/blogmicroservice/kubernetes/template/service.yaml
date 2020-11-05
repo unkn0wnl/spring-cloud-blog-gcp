@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     app: blog-microservice
-    tier: backend
   ports:
   - protocol: TCP
     port: 80
