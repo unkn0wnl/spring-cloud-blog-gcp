@@ -17,9 +17,6 @@ echo '### create redis instance ###'
 gcloud redis instances create spring-redis-blog --size=1 --region=$zone
 gcloud redis instances describe spring-redis-blog --region=$zone
 
-# build
-./gradlew build
-
 # create docker file
 docker build -t eu.gcr.io/$project/$microservice:latest --build-arg JAR_FILE=$jarfile .
 

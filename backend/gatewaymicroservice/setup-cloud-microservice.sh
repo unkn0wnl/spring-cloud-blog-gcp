@@ -6,9 +6,6 @@ source ../variables.properties
 microservice=gateway-microservice
 jarfile=build/libs/gatewaymicroservice-0.0.1-SNAPSHOT.jar
 
-# build
-./gradlew build
-
 # create docker file
 docker build -t eu.gcr.io/$project/$microservice:latest --build-arg JAR_FILE=$jarfile .
 

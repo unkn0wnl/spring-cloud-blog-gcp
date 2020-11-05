@@ -13,9 +13,6 @@ gcloud projects add-iam-policy-binding $project --member serviceAccount:$microse
 gcloud iam service-accounts keys create --iam-account $microservice@$project.iam.gserviceaccount.com $microservice-credentials.json
 kubectl create secret generic comment-secret --from-file=credentials.json=$microservice-credentials.json
 
-# build
-./gradlew build
-
 # create docker file
 docker build -t eu.gcr.io/$project/$microservice:latest --build-arg JAR_FILE=$jarfile .
 

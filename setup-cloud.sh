@@ -53,11 +53,18 @@ echo zone: $zone
 	# hardcoded region. app enginge needed for datastore functionality. region shouldn't affect any performance
 	gcloud app create --region=europe-west
 
+
+  cd backend || exit
 # deploy microservices
 	echo '###'
 	echo '### deploy config-microservice ###'
 	echo '###'
+
+	chmod +x gradlew
+	./gradlew
+
 	cd configmicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..
 	
@@ -65,6 +72,7 @@ echo zone: $zone
 	echo '### deploy blog-microservice ###'
 	echo '###'
 	cd blogmicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..
 	
@@ -72,6 +80,7 @@ echo zone: $zone
 	echo '### deploy comment-microservice ###'
 	echo '###'
 	cd commentmicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..
 	
@@ -79,6 +88,7 @@ echo zone: $zone
 	echo '### deploy statistic-microservice ###'
 	echo '###'
 	cd statisticmicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..
 	
@@ -86,19 +96,23 @@ echo zone: $zone
 	echo '### deploy auth-microservice ###'
 	echo '###'
 	cd authmicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
-	cd ..
+	cd ../..
 	
 	echo '###'
 	echo '### deploy frontend ###'
 	echo '###'
 	cd frontend
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..
 
 	echo '###'
 	echo '### deploy gateway-microservice ###'
 	echo '###'
+	cd backend
 	cd gatewaymicroservice
+	chmod +x setup-cloud-microservice.sh
 	./setup-cloud-microservice.sh
 	cd ..

@@ -20,9 +20,6 @@ gcloud iam service-accounts keys create --iam-account $microservice@$project.iam
 kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json=credentials.json
 kubectl create secret generic cloudsql-db-credentials --from-literal=username=dbuser --from-literal=password=1234
 
-# build
-./gradlew build
-
 # create docker file
 docker build -t eu.gcr.io/$project/$microservice:latest --build-arg JAR_FILE=$jarfile .
 
