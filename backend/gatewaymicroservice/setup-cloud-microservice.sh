@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# set global variables:
-source ../../variables.properties
-
 microservice=gateway-microservice
 jarfile=build/libs/gatewaymicroservice-0.0.1-SNAPSHOT.jar
 

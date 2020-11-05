@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# set global variables:
-source ../../variables.properties
-
 microservice=auth-microservice
 jarfile=build/libs/authmicroservice-0.0.1-SNAPSHOT.jar
 

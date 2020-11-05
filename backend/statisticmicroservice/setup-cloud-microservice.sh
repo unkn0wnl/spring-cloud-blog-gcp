@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# set global variables:
-. ../../variables.properties
-
 microservice=statistic-microservice
 jarfile=build/libs/statisticmicroservice-0.0.1-SNAPSHOT.jar
 
