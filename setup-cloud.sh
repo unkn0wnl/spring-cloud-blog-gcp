@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#check inital variables
+[ -z "$project" ] && echo "Var project is empty. Please set var project. For example:\n\texport project=your-projects-id"
+[ -z "$project" ] && echo "Var cluster is empty. Please set var cluster. For example:\n\texport cluster=application"
+[ -z "$project" ] && echo "Var zone is empty. Please set var zone. For example:\n\texport zone=europe-west1"
+
+#show var
 echo project: $project
 echo cluster: $cluster
 echo zone: $zone
@@ -11,7 +17,7 @@ echo zone: $zone
 	gcloud projects create $project || { echo 'Create project failed, verify that the PROJECT_NAME in variables.properties is unique.' ; exit 1; }
 	gcloud config set project $project
 	gcloud config set compute/zone $zone
-  # enable payment (open browser on differrent distributions)
+  # enable payment (open browser on different distributions)
 	echo you must activate payment for the project $project before you continue. Press enter to continue ...
   if which xdg-open > /dev/null
   then
@@ -45,18 +51,24 @@ echo zone: $zone
 	echo '###'
 	echo '### create app engine ###'
 	echo '###'
+
 	# hardcoded region. app enginge needed for datastore functionality. region shouldn't affect any performance
 	gcloud app create --region=europe-west
 
-
+  #change directory
   cd backend || exit
-# deploy microservices
+
+  # build backend
+  echo '###'
+	echo '###   build backend   ###'
+	echo '###'
+	chmod +x gradlew
+	./gradlew build
+
+  # deploy microservices
 	echo '###'
 	echo '### deploy config-microservice ###'
 	echo '###'
-
-	chmod +x gradlew
-	./gradlew build
 
 	cd configmicroservice
 	chmod +x setup-cloud-microservice.sh
