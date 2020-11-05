@@ -8,7 +8,7 @@ echo zone: $zone
 	echo '###'
 	echo '### create project' $project '###'
 	echo '###'
-#	gcloud projects create $project || { echo 'Create project failed, verify that the PROJECT_NAME in variables.properties is unique.' ; exit 1; }
+	gcloud projects create $project || { echo 'Create project failed, verify that the PROJECT_NAME in variables.properties is unique.' ; exit 1; }
 	gcloud config set project $project
 	gcloud config set compute/zone $zone
   # enable payment (open browser on differrent distributions)
