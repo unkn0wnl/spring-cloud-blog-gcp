@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set global variables:
-source ../variables.properties
+source ../../variables.properties
 
 microservice=comment-microservice
 jarfile=build/libs/commentmicroservice-0.0.1-SNAPSHOT.jar

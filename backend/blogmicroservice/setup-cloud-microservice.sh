@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set global variables:
-source ../variables.properties
+source ../../variables.properties
 
 microservice=blog-microservice
 jarfile=build/libs/blogmicroservice-0.0.1-SNAPSHOT.jar
