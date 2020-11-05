@@ -6,15 +6,19 @@ jarfile=build/libs/authmicroservice-0.0.1-SNAPSHOT.jar
 echo ### create cloud sql database ###
 # create cloud sql instance
 gcloud sql instances create userdb --cpu=1 --memory=3840MiB --database-version=POSTGRES_9_6 --region=$zone
+#TODO credentials must be in properties file
 gcloud sql users set-password postgres --host=no-host --instance=userdb --password=1234
 # create db
+#TODO credentials must be in properties file
 gcloud sql users create dbuser --host=no-host --instance=userdb --password=1234
+#TODO credentials must be in properties file
 gcloud sql databases create user_database --instance=userdb
 # create service account
 gcloud iam service-accounts create $microservice
 gcloud projects add-iam-policy-binding $project --member serviceAccount:$microservice@$project.iam.gserviceaccount.com --role roles/editor
 gcloud iam service-accounts keys create --iam-account $microservice@$project.iam.gserviceaccount.com credentials.json
 kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json=credentials.json
+#TODO credentials must be in properties file
 kubectl create secret generic cloudsql-db-credentials --from-literal=username=dbuser --from-literal=password=1234
 
 # create docker file
