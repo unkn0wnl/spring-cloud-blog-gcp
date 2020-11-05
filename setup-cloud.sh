@@ -61,7 +61,7 @@ echo zone: $zone
 	echo '###'
 
 	chmod +x gradlew
-	./gradlew
+	./gradlew build
 
 	cd configmicroservice
 	chmod +x setup-cloud-microservice.sh
