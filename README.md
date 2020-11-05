@@ -84,30 +84,17 @@ gcloud auth configure docker
 
 > Make sure that the prequisites are fullfilled
 
-Open `variables.properties` and change `GCP_PROJECT_NAME` to a unique name, which isn't used in any other google cloud project.
-
-
-### Local Build
-
-> NOTE: The `setup-local` script may take up to 5 minutes.
-
-1. Run `setup-local`
-2. The script will open the webbrowser for your project to activate payment for this project. Press any key to continue.
-3. Navigate to http://localhost:8181 to open the Blog-Application.
-
-The local build will generate following:
-* Google Cloud Project with name and zone configured in `variables.properties` and payment enabled
-* App Engine
-* Enable datastore.googleapis.com API
-* Run projects locally
-
-The Google Cloud Project is on the local build only needed for the `Datastore`.
+Set `$project` variable to a **unique name**, `which isn't used in any other google cloud project.`
+And set `$cluster` and `$time_zone` var's.
+```
+$ export project=...
+$ export cluster=application
+$ export zone=europe-west1
+```
 
 ### Cloud Build
 
-> NOTE: The `setup-cloud` script may take up to 20 minutes.
-
-1. Run `setup-cloud.bat` or `setup-cloud.sh`
+1. Run `deployToCloud.sh`.
 2. The script will open the webbrowser for your project to activate payment for this project. Press any key to continue when payment is activated.
 3. Go to https://console.cloud.google.com to your project (you may must reload the whole page to see kubernetes cluster). 
 	Navigate to `Kubernetes Engine > Services` and click on the `gateway-microservice` url to open the Blog-Application.
@@ -140,6 +127,7 @@ If you are inerested in what development tools could be used, have a look at the
 
 * **Moritz Habegger**
 * **Micha Schena**
+* **Unkn0wn L**
 
 ## License
 
