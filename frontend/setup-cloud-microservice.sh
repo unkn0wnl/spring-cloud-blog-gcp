@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set global variables:
-source ../../variables.properties
+source ../variables.properties
 
 microservice=frontend
 
