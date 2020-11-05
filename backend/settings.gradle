@@ -1,0 +1,7 @@
+rootProject.name = 'backend'
+include('authmicroservice',
+        'blogmicroservice',
+        'commentmicroservice',
+        'configmicroservice',
+        'gatewaymicroservice',
+        'statisticmicroservice')
