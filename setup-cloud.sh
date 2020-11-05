@@ -1,18 +1,18 @@
-##!/bin/bash
-#
-## set global variables
-#echo '###'
-#echo '### setting variable ###'
-#echo '###'
-#source ./variables.properties
-#echo project: $project
-#echo cluster: $cluster
-#echo zone: $zone
-#
-## initialize cloud project
-#	echo '###'
-#	echo '### create project' $project '###'
-#	echo '###'
+#!/bin/bash
+
+# set global variables
+echo '###'
+echo '### setting variable ###'
+echo '###'
+source ./variables.properties
+echo project: $project
+echo cluster: $cluster
+echo zone: $zone
+
+# initialize cloud project
+	echo '###'
+	echo '### create project' $project '###'
+	echo '###'
 ##	gcloud projects create $project || { echo 'Create project failed, verify that the PROJECT_NAME in variables.properties is unique.' ; exit 1; }
 #	gcloud config set project $project
 #	gcloud config set compute/zone $zone
