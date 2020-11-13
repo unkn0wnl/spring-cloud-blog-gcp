@@ -2,8 +2,8 @@
 
 #check inital variables
 [ -z "$project" ] && echo "Var project is empty. Please set var project. For example:\n\texport project=your-projects-id"
-[ -z "$project" ] && echo "Var cluster is empty. Please set var cluster. For example:\n\texport cluster=application"
-[ -z "$project" ] && echo "Var zone is empty. Please set var zone. For example:\n\texport zone=europe-west1"
+[ -z "$cluster" ] && echo "Var cluster is empty. Please set var cluster. For example:\n\texport cluster=application"
+[ -z "$zone" ] && echo "Var zone is empty. Please set var zone. For example:\n\texport zone=europe-west1"
 
 #show var
 echo project: $project
@@ -71,48 +71,48 @@ echo zone: $zone
 	echo '###'
 
 	cd configmicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..
 	
 	echo '###'
 	echo '### deploy blog-microservice ###'
 	echo '###'
 	cd blogmicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..
 	
 	echo '###'
 	echo '### deploy comment-microservice ###'
 	echo '###'
 	cd commentmicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..
 	
 	echo '###'
 	echo '### deploy statistic-microservice ###'
 	echo '###'
 	cd statisticmicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..
 	
 	echo '###'
 	echo '### deploy auth-microservice ###'
 	echo '###'
 	cd authmicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ../..
 	
 	echo '###'
 	echo '### deploy frontend ###'
 	echo '###'
 	cd frontend
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..
 
 	echo '###'
@@ -120,6 +120,6 @@ echo zone: $zone
 	echo '###'
 	cd backend
 	cd gatewaymicroservice
-	chmod +x setup-cloud-microservice.sh
-	./setup-cloud-microservice.sh
+	chmod +x deploy.sh
+	./deploy.sh
 	cd ..

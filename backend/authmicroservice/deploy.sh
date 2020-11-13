@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#check inital variables
+[ -z "$project" ] && echo "Var project is empty. Please set var project. For example:\n\texport project=your-projects-id"
+[ -z "$cluster" ] && echo "Var cluster is empty. Please set var cluster. For example:\n\texport cluster=application"
+[ -z "$zone" ] && echo "Var zone is empty. Please set var zone. For example:\n\texport zone=europe-west1"
+
 microservice=auth-microservice
 jarfile=build/libs/authmicroservice-0.0.1-SNAPSHOT.jar
 
